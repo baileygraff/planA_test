@@ -1,0 +1,28 @@
+####Process Break-Down#####
+- for post-meeting upgrades
+
+1. extract
+GOAL: json data > "in-memory columnar data structure" like pandas dataframe
+
+    a. load json data from json file (test.json right now / located in data directory, for now). This uses pandas, and loads into dataframe 
+    b. export dataframe to csv as "extracted data" to be used by the "transform" process
+
+    Possible changes: 
+    - as part of SQL-shift, change from current process that ends with csv > to process that loads directly into database (SQLite, for now)
+
+2. transform
+GOAL: make sure data is usable for analysis. not a lot of specifics necessary with the current data
+    ^ if multiple sources were being extracted, this could standardize them before loading into database/data warehouse
+
+    Possible changes:
+    - consider separating out month data? Or see how that could be achieved through views
+
+3. load
+GOAL: load data into database/data warehouse
+
+    a. create DB & create connection
+    b. load data into DB
+    c. close connection
+
+    Possible changes:
+    - alternative options: currently always create/replace > add options to add to existing?
