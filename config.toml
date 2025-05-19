@@ -1,0 +1,12 @@
+[filepaths]
+raw_dir = "data/raw/"
+output_dir = "data/output/"
+schema_dir = "schema"
+
+[data]
+json_data = "test.json"
+
+[schema]
+schema01 = "01_create_tables.sql"
+schema02 = "02_transforms.sql"
+schema03 = "03_views.sql"
