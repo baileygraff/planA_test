@@ -12,6 +12,8 @@ def load_data_replace(targetData,
     try:
         print("loading data")
         db_path = Path(outputLoc) / dbName
+        db_path.parent.mkdir(parents=True, exist_ok=True)   #create output directory if it does not exist already
+
         with sqlite3.connect(db_path) as connection:
             targetData.to_sql(tblName, 
                               connection, 
